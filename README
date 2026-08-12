@@ -12,3 +12,7 @@ details that are difficult to replicate without reverse engineering.
 Build:
 
     c++ -std=c++17 $(llvm-config --cxxflags --ldflags) iig.cpp -lclang -o iig
+
+Test:
+
+    tests/run.sh

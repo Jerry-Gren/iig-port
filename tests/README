@@ -1,0 +1,19 @@
+iig-port tests
+==============
+
+Run the full test archive from the repository root:
+
+    tests/run.sh
+
+The test archive contains input .iig files and Xcode 26.3 (DriverKit-440)
+reference outputs. The test builds iig.cpp, regenerates all outputs, and
+compares the generated headers, implementation sources, and edits with the
+reference files.
+
+Set XNU_SRC to an existing XNU checkout to avoid cloning:
+
+    XNU_SRC=/path/to/xnu tests/run.sh
+
+If XNU_SRC is not set, the test archive's prepare script clones the public XNU
+repository at the Apple xnu revision recorded in the archive
+(f6217f891ac0bb64f3d375211650a4c1ff8ca1ea, xnu-12377.1.9).
