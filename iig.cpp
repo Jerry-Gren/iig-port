@@ -4851,10 +4851,7 @@ void write_edits_for_class(std::ostringstream &out,
 std::string generate_edits(const ParseState &state)
 {
 	std::ostringstream out;
-	std::map<std::string, const ClassInfo *> classes;
-	for (const ClassInfo &klass : state.classes) {
-		classes[klass.name] = &klass;
-	}
+	std::map<std::string, const ClassInfo *> classes = class_map(state);
 	for (auto it = state.classes.rbegin(); it != state.classes.rend(); ++it) {
 		if (!annotation_value(it->annotations, "extends=").empty()) {
 			write_edits_for_class(out, classes, *it);
