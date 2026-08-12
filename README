@@ -1,0 +1,14 @@
+iig-port - portable DriverKit IIG generator
+
+This is a cross-platform reimplementation of Apple's DriverKit iig host tool,
+intended to generate headers and implementation sources from public XNU
+DriverKit .iig inputs.
+
+The implementation is based on observing the macOS Xcode 26.3 iig
+(DriverKit-440) tool's output for different inputs, not on reverse engineering.
+Its behavior is not equivalent to Xcode iig, including error messages and other
+details that are difficult to replicate without reverse engineering.
+
+Build:
+
+    c++ -std=c++17 $(llvm-config --cxxflags --ldflags) iig.cpp -lclang -o iig
